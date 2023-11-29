@@ -89,12 +89,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="GraphicsItem_test.qrc"/>
-    <QtUic Include="GraphicsItem_test.ui"/>
-    <QtMoc Include="GraphicsItem_test.h"/>
-    <ClCompile Include="GraphicsItem_test.cpp"/>
-    <ClCompile Include="main.cpp"/>
-
+    <ClCompile Include="StarItem.cpp" />
+    <ClCompile Include="SunshineItem.cpp" />
+    <QtRcc Include="GraphicsItem_test.qrc" />
+    <QtUic Include="GraphicsItem_test.ui" />
+    <QtMoc Include="GraphicsItem_test.h" />
+    <ClCompile Include="GraphicsItem_test.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="SunshineItem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StarItem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
