@@ -1,4 +1,6 @@
 TEMPLATE = subdirs
 
-SUBDIRS += \
-    WidgetEx
+SUBDIRS += \  
+    QLog    \
+
+
