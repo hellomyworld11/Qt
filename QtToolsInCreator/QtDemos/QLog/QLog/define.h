@@ -3,6 +3,8 @@
 #include <QString>
 #include <QTime>
 
+#define LOG_PATH "./Log/"
+
 #include <QMetaType>
 /**
      * @brief           日志信息

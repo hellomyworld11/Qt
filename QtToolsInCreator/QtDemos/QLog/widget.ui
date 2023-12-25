@@ -25,6 +25,12 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="currentText">
+      <string/>
+     </property>
+     <property name="currentIndex">
+      <number>-1</number>
+     </property>
     </widget>
    </item>
    <item row="1" column="1">

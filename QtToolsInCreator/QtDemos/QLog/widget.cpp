@@ -1,6 +1,8 @@
 ﻿#include "widget.h"
 #include "ui_widget.h"
+#include <QComboBox>
 #include <QDebug>
+#include <QStringList>
 
 Widget::Widget(QWidget* parent)
     : QWidget(parent)
@@ -10,7 +12,15 @@ Widget::Widget(QWidget* parent)
 
     setWindowTitle("日志输出测试");
 
-    connect(ui->combox_FileType, &QComboBox::activated,
+    QStringList types;
+    types << "Log"
+          << "Csv";
+
+    ui->combox_FileType->addItems(types);
+    ui->combox_FileType->setCurrentIndex(0);
+
+    void (QComboBox::*fun)(int) = static_cast<void (QComboBox::*)(int)>(&QComboBox::activated);
+    connect(ui->combox_FileType, fun,
         this, &Widget::on_combo_activate);
 
     m_timer = new QTimer(this);
