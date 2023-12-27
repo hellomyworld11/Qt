@@ -1,4 +1,5 @@
 ﻿#include "widget.h"
+#include "logsavetxt.h"
 #include "ui_widget.h"
 #include <QComboBox>
 #include <QDebug>
@@ -44,5 +45,6 @@ void Widget::on_timer()
 
 void Widget::on_combo_activate(int index)
 {
-    qDebug() << "index: " << index;
+    // qDebug() << "index: " << index;
+    ((LogSaveTxt*)LogSaveTxt::getInstance())->setFileType((LogSaveTxt::FileType)index);
 }
