@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include "netproperty.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -14,8 +15,11 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
+protected:
+    void  on_btn_inter();
 private:
     Ui::Widget *ui;
+
+    NetProperty *proWidet;
 };
 #endif // WIDGET_H

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+
 namespace Ui {
 class NetProperty;
 }
@@ -17,7 +18,7 @@ private slots:
     void on_com_Interface_activated(int index);
 
 private:
-    void init();
+    void Init();
     QString FlagsToQString(int flags);
     QString TypeToQString(int type);
 
