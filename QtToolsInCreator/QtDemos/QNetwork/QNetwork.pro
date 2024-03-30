@@ -17,6 +17,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 include($$PWD/NetInterface/NetInterface.pri)
 INCLUDEPATH += $$PWD/NetInterface
 
+include($$PWD/Network/Network.pri)
+INCLUDEPATH += $$PWD/Network
+
 SOURCES += \
     main.cpp \
     widget.cpp

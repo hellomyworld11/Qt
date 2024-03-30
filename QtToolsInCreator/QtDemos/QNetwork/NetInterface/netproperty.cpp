@@ -57,6 +57,33 @@ void NetProperty::on_com_Interface_activated(int index)
     ui->tableWidget->item(5, 1)->setText(interface.hardwareAddress());                            // // 获取MAC地址
 
     ui->textEdit_ip->clear();
+
+    // 如果只是获取所有的IP地址可以使用allAddresses()函数
+    const QList<QNetworkAddressEntry> entrys = interface.addressEntries();  // 返回此接口拥有的 IP 地址列表及其关联的网络掩码和广播地址。
+    for(auto entery : entrys)
+    {
+        QString strType;
+        switch (entery.ip().protocol())       // 判断IP地址类型
+        {
+        case QAbstractSocket::IPv4Protocol:
+            strType = "--------IPv4地址--------";
+            break;
+        case QAbstractSocket::IPv6Protocol:
+            strType = "--------IPv6地址--------";
+            break;
+        case QAbstractSocket::AnyIPProtocol:
+            strType = "--------IPv4或IPv6地址--------";
+            break;
+        case QAbstractSocket::UnknownNetworkLayerProtocol:
+            strType = "--------未知地址--------";
+            break;
+        }
+        ui->textEdit_ip->append(strType);             // 显示IP地址类型
+        QString ipInfo = QString("IP地址：%1，子网掩码：%2，广播地址：%3").arg(entery.ip().toString())
+                .arg(entery.netmask().toString())
+                .arg(entery.broadcast().toString());
+        ui->textEdit_ip->append(ipInfo);              // 显示IP地址信息
+    }
 }
 
 void NetProperty::Init()
@@ -70,4 +97,65 @@ void NetProperty::Init()
         qDebug() << interface.name();
         ui->com_Interface->addItem(interface.humanReadableName(), interface.name());       // 显示所有网络接口名称
     }
+}
+
+QString NetProperty::FlagsToQString(int flags)
+{
+    QString strFlags;
+    if(flags & QNetworkInterface::IsUp)
+    {
+        strFlags += "网络接口处于活动状态";
+    }
+    if(flags & QNetworkInterface::IsRunning)
+    {
+        strFlags.append(strFlags.isEmpty() ? "" : " | ");
+        strFlags += "网络接口已分配资源";
+    }
+    if(flags & QNetworkInterface::CanBroadcast)
+    {
+        strFlags.append(strFlags.isEmpty() ? "" : " | ");
+        strFlags += "网络接口工作在广播模式";
+    }
+    if(flags & QNetworkInterface::IsLoopBack)
+    {
+        strFlags.append(strFlags.isEmpty() ? "" : " | ");
+        strFlags += "网络接口是一个环回接口";
+    }
+    if(flags & QNetworkInterface::IsPointToPoint)
+    {
+        strFlags.append(strFlags.isEmpty() ? "" : " | ");
+        strFlags += "网络接口是一个点对点接口";
+    }
+    if(flags & QNetworkInterface::CanMulticast)
+    {
+        strFlags.append(strFlags.isEmpty() ? "" : " | ");
+        strFlags += "网络接口支持组播";
+    }
+    return strFlags;
+}
+
+QString NetProperty::TypeToQString(int type)
+{
+#if (QT_VERSION >= QT_VERSION_CHECK(5,11,0))        // qt5.11以后版本才有
+    switch (type)
+    {
+    case QNetworkInterface::Loopback: return "虚拟环回接口，分配了环回 IP 地址 (127.0.0.1, ::1)";
+    case QNetworkInterface::Virtual:  return "一种确定为虚拟的接口类型，但不是任何其他可能的类型";
+    case QNetworkInterface::Ethernet: return "IEEE 802.3 以太网接口";
+    case QNetworkInterface::Slip:     return "串行线路互联网协议接口";
+    case QNetworkInterface::CanBus:   return "ISO 11898 控制器局域网总线接口";
+    case QNetworkInterface::Ppp:      return "点对点协议接口，通过较低的传输层（通常通过无线电或物理线路串行）在两个节点之间建立直接连接";
+    case QNetworkInterface::Fddi:     return "ANSI X3T12 光纤分布式数据接口，一种光纤局域网";
+    case QNetworkInterface::Wifi:     return "IEEE 802.11 Wi-Fi 接口";         // 别名 Ieee80211
+    case QNetworkInterface::Phonet:   return "使用 Linux Phonet socket系列的接口，用于与蜂窝调制解调器通信";
+    case QNetworkInterface::Ieee802154: return "IEEE 802.15.4 个人区域网络接口，6LoWPAN 除外";
+    case QNetworkInterface::SixLoWPAN:  return "6LoWPAN（低功耗无线个人区域网络上的 IPv6）接口，通常用于网状网络";
+    case QNetworkInterface::Ieee80216:  return "IEEE 802.16 无线城域网";
+    case QNetworkInterface::Ieee1394:   return "IEEE 1394 接口（又名“FireWire”）";
+    case QNetworkInterface::Unknown:    return "接口类型无法确定或不是其他列出的类型之一";
+    default:return "未知";
+    }
+#else
+    Q_UNUSED(type)
+#endif
 }

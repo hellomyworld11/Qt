@@ -32,5 +32,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 # 加载pri文件
 include($$PWD/controls/controls.pri)
+include($$PWD/widgetTemp/widgetTemp.pri)
 
 DISTFILES +=

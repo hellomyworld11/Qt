@@ -1,12 +1,12 @@
-INCLUDEPATH += $$PWD/..
-DEPENDPATH += $$PWD/..
+INCLUDEPATH += $$PWD
+DEPENDPATH += $$PWD
 
 FORMS += \
-    $$PWD/toolbar.ui
+    $$PWD/toolbarTmp.ui
 
 HEADERS += \
-    $$PWD/toolbar.h
+    $$PWD/toolbarTmp.h
 
 SOURCES += \
-    $$PWD/toolbar.cpp
+    $$PWD/toolbarTmp.cpp
 

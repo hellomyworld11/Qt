@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "netproperty.h"
+#include "tcpserver.h"
+#include "tcpclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -17,9 +19,13 @@ public:
     ~Widget();
 protected:
     void  on_btn_inter();
+    void on_btn_tcpServer();
+    void on_btn_tcpClient();
 private:
     Ui::Widget *ui;
 
-    NetProperty *proWidet;
+    NetProperty *proWidet = nullptr;
+    TcpServer *tcpserver = nullptr;
+    TcpClient *tcpClient = nullptr;
 };
 #endif // WIDGET_H

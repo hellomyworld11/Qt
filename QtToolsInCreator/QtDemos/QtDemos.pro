@@ -1,6 +1,16 @@
 TEMPLATE = subdirs
 
-SUBDIRS += \  
-    QLog    \
+SUBDIRS +=              \
+#    QLog                \
+    ModelViewDemo \
+    QQOpenGLWidget \
+    QThreadDemo \
+ \#     QNetwork
+  #  QStyle \
+    openglDemo
+
+
+
+
 
 

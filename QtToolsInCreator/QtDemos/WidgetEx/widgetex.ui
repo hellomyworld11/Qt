@@ -13,22 +13,27 @@
   <property name="windowTitle">
    <string>WidgetEx</string>
   </property>
-  <widget class="toolbar" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>771</width>
-     <height>71</height>
-    </rect>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="toolbarTmp" name="toolbar" native="true">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>50</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QWidget" name="subWidget" native="true"/>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>toolbar</class>
+   <class>toolbarTmp</class>
    <extends>QWidget</extends>
-   <header>toolbar.h</header>
+   <header>toolbartmp.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
