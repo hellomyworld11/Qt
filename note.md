@@ -22,7 +22,7 @@ https://codebrowser.dev/qt5/
 可能是同时打开了多个版本的creator导致QtCreator.ini 很大。  删掉其中的乱码即可。
 ```
 
-
+3. 打开项目 ， 项目页面 出现很多replacement for ...  打开mange kit  删掉 replacement 开头的即可
 
 
 
