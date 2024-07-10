@@ -1,6 +1,7 @@
 ### Qt 关键点
 
-关于问题:
+#### 关于问题:
+
 1.资料库
 
 ```
@@ -24,7 +25,16 @@ https://codebrowser.dev/qt5/
 
 3. 打开项目 ， 项目页面 出现很多replacement for ...  打开mange kit  删掉 replacement 开头的即可
 
+4. 编译项目时 出现 mingw32-make[1]: Nothing to be done for 'first'.  可能是 项目文件  
 
+   ```
+   SUBDIRS += testQtQuick \\
+     			xxx \ 
+     			换行符导致。
+   
+   ```
+
+   
 
 
 
@@ -77,3 +87,10 @@ class HelloWorldTask : public QRunnable
 ​	![image-20240310205220737](note.assets/image-20240310205220737.png)
 
 模型视图结构 是 界面组件与数据关联的结构
+
+
+
+
+
+## Qt quick
+
