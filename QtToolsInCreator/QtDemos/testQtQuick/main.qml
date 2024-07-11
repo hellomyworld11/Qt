@@ -2,29 +2,35 @@
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 
-Window {
+
+Window{
     visible: true
-    width: 360
-    height: 360
+    Rectangle{
+        width: 400
+        height: 400
+        color: "blue"
+    }
+
+    Image {
+        id: name
+        source: "res/鼠标.png"
+        width: 100
+        height: 100
+        anchors.left: parent
+    }
+
     Text {
-        x: wid
-        anchors.centerIn: parent
-        text: "Hello World"
-        color: "red"
+        x:110
+        y:0
+        width: 100
+        height: 90
+        id: text1
+        text: qsTr("text1")
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
-        }
-    }
-
-    Button {
-        anchors.centerIn: parent
-        text: "Ok"
-        onClicked: {
-            console.log("button click");
-        }
+    Button{
+        x:0
+        y:100
+        text: text1.text
     }
 }
