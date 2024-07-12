@@ -94,3 +94,64 @@ class HelloWorldTask : public QRunnable
 
 ## Qt quick
 
+---
+
+### QML
+
+####  简单示例
+
+```
+import QtQuick 2.9      //导入类型
+import QtQuick.Window 2.2
+import QtQuick.Controls 2.2
+
+//窗体
+Window{
+    visible: true   //可显示
+    Rectangle{	    //矩形区域
+        width: 400
+        height: 400
+        color: "blue"		
+    }
+
+    Image {  //图像
+        id: name    //id 其它控件可引用这个id
+        source: "res/鼠标.png"
+        width: 100
+        height: 100
+        anchors.left: parent      //相对于父控件区域内的位置
+    }
+
+    Text {		//文本
+        x:110
+        y:0
+        width: 100
+        height: 90
+        id: text1
+        text: qsTr("text1")
+    }
+
+    Button{	//按钮
+        x:0
+        y:100
+        text: text1.text   //这里引用了id为text1的控件的文本
+    }
+}
+
+```
+
+结果如下
+
+![image-20240712144706738](note.assets/image-20240712144706738.png)
+
+#### 语法
+
+
+
+Rectangle
+需要放到Window下才显示
+
+​	
+
+---
+
