@@ -1,6 +1,6 @@
-### Qt 关键点
+## Qt 关键点
 
-#### 关于问题:
+### 关于问题:
 
 1.资料库
 
@@ -38,7 +38,7 @@ https://codebrowser.dev/qt5/
 
 
 
-#### 1.信号槽
+### 1.信号槽
 
 ![image-20231128160538127](note.assets/image-20231128160538127.png)
 
@@ -48,7 +48,7 @@ https://codebrowser.dev/qt5/
 https://blog.51cto.com/quantfabric/2070398
 ```
 
-#### 2.样式表
+### 2.样式表
 
 ```
 1.语法：
@@ -63,7 +63,7 @@ https://blog.51cto.com/quantfabric/2070398
   QComboBox::drop-down { image: url(dropdown.png) }
 ```
 
-#### 3.并发编程
+### 3.并发编程
 
 ```
 1.qt 线程池使用
@@ -82,13 +82,23 @@ class HelloWorldTask : public QRunnable
   QFuture<void> QtConcurrent::map(Sequence &sequence, MapFunctor function) 可以处理大量数据
 ```
 
-#### 4.Model/View 
+### 4.Model/View
 
 ​	![image-20240310205220737](note.assets/image-20240310205220737.png)
 
 模型视图结构 是 界面组件与数据关联的结构
 
+### 5. 零碎知识
 
+属性宏 Q_PROPERTY()
+
+eg:
+
+类里面声明宏，对text属性进行修饰
+
+  Q_PROPERTY(QString text READ getText WRITE setText)
+
+  QString text;         
 
 
 
