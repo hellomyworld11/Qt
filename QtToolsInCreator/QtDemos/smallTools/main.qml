@@ -1,22 +1,20 @@
 ﻿import QtQuick 2.7
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
-//import "qrc:/MaterialUI/"
-//import "qrc:/MaterialUI/Interface/"
 
 ApplicationWindow {
-    id: mainWindow
+    id: mainWindow      //窗口id
     title: "SmallTools"
     width: 800
     height: 600
     visible: true
-    opacity: 0
+    opacity: 0          //透明度
     color: "#fafafa"
 
     minimumWidth: 800
     minimumHeight: 600
 
-    Component.onCompleted: {
+    Component.onCompleted: {  //初始化
         mainPageContains.showPage( "首页", "qrc:/Welcome/Welcome.qml" );
 
         opacityAnimation.start();

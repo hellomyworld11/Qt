@@ -35,3 +35,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #导入文件
 include( $$PWD/components/components.pri)
 include( $$PWD/lib/JQToolsLibrary/JQToolsLibrary.pri)
+

@@ -52,6 +52,12 @@ https://codebrowser.dev/qt5/
 基于元对象系统实现， 设计模式角度上 来看是一种观察者模式
 
 https://blog.51cto.com/quantfabric/2070398
+
+信号与槽可以传输结构体或者自定义类型
+qRegisterMetaType<cv::Mat>("cv::Mat");  注册自定义类型
+
+qml中注册类型
+qmlRegisterType<Welcome::Manage>("Welcome", 1, 0, "WelcomeManage");
 ```
 
 ### 2.样式表
