@@ -175,7 +175,7 @@ Rectangle
 需要放到Window下才显示
 ```
 
-
+打印日志:  			console.log
 
 
 

@@ -272,6 +272,7 @@ ApplicationWindow {
                             }
 
                             onClicked: {
+                                console.log("item clicked");
                                 mainPageContains.showPage( titleName, itemQrcLocation );
                             }
                         }
@@ -300,6 +301,7 @@ ApplicationWindow {
           //      textHorizontalAlignment: Text.AlignLeft
 
                 onClicked: {
+                    console.log("button clicked");
                     mainPageContains.showPage( titleName, itemQrcLocation );
 
                     if ( secondBookmarkListModel.count )
@@ -396,6 +398,7 @@ ApplicationWindow {
         property var pages: new Object
 
         function showPage( titleName, itemQrcLocation ) {
+            console.log("showPage");
             showPageTimer.titleName = titleName;
             showPageTimer.itemQrcLocation = itemQrcLocation;
             showPageTimer.start();
@@ -424,6 +427,8 @@ ApplicationWindow {
                                 var page = component.createObject( mainPageContains );
                                 page.anchors.fill = mainPageContains;
                                 mainPageContains.pages[ itemQrcLocation ] = page;
+                            }else{
+                                console.log("%s not ready", itemQrcLocation);
                             }
                         }
 
@@ -432,8 +437,23 @@ ApplicationWindow {
                             mainPageContains.pages[ key ].visible = false;
                         }
 
+                        if(mainPageContains.pages.length === 0)
+                        {
+                           console.log("pages size is empty");
+                        }
+
+
+                        for ( var apage in mainPageContains.pages )
+                        {
+                            console.log("key:value: ", apage);
+                        }
+
                         currentItemTitleNameLabel.text = titleName;
+                        console.log("itemQrcLocation:", itemQrcLocation);
+                        console.log("pages size: %d", mainPageContains.pages.length);
                         mainPageContains.pages[ itemQrcLocation ].visible = true;
+
+
 
                         break;
                 }

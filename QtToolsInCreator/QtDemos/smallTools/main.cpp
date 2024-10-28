@@ -1,4 +1,5 @@
-﻿#include <QGuiApplication>
+﻿#include "textgroup.h"
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <WelcomeGroup>
 
@@ -18,6 +19,7 @@ int main(int argc, char* argv[])
         Qt::QueuedConnection);
 
     WELCOMEGROUP_INITIALIZA
+    TEXTGROUP_INITIALIZA
 
     engine.load(url);
 
