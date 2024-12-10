@@ -1,4 +1,6 @@
-﻿#include "textgroup.h"
+﻿#include "makegroup.h"
+#include "textgroup.h"
+#include <QApplication>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <WelcomeGroup>
@@ -7,7 +9,7 @@ int main(int argc, char* argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -20,6 +22,7 @@ int main(int argc, char* argv[])
 
     WELCOMEGROUP_INITIALIZA
     TEXTGROUP_INITIALIZA
+    MAKEGROUP_INITIALIZA
 
     engine.load(url);
 
