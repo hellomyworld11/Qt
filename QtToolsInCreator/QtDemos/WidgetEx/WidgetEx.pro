@@ -35,3 +35,6 @@ include($$PWD/controls/controls.pri)
 include($$PWD/widgetTemp/widgetTemp.pri)
 
 DISTFILES +=
+
+RESOURCES += \
+    res.qrc

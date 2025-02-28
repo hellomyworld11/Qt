@@ -102,15 +102,21 @@ class HelloWorldTask : public QRunnable
 
 ### 5. 零碎知识
 
-属性宏 Q_PROPERTY()
++ 属性宏 Q_PROPERTY()
 
-eg:
+  ```
+  eg:
+  
+  类里面声明宏，对text属性进行修饰
+  
+    Q_PROPERTY(QString text READ getText WRITE setText)
+  
+    QString text;         
+  ```
 
-类里面声明宏，对text属性进行修饰
+  + qApp 是全局宏代表当前的应用程序对象
 
-  Q_PROPERTY(QString text READ getText WRITE setText)
 
-  QString text;         
 
 
 
