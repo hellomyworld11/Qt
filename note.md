@@ -15,6 +15,8 @@ https://mirrors.tuna.tsinghua.edu.cn/qt/online/qtsdkrepository/windows_x86/deskt
 ```
 源码在线查看
 https://codebrowser.dev/qt5/
+源码下载
+https://download.qt.io/archive/qt/6.0/6.0.4/submodules/
 ```
 
 2.QtCreator打开巨慢很卡
