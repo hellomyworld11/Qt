@@ -22,6 +22,10 @@ protected:
 
     void drawScaleLine(QPainter& painter, int radius);
 
+    void drawScaleValue(QPainter& painter, int radius);
+
+    void drawCicle(QPainter& painter, );
+
 private:
     Ui::MainWindow* ui;
     int paintnum;
